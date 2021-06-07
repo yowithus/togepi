@@ -1,7 +1,15 @@
+buildscript {
+	ext {
+		springBootVersion = '2.5.0'
+		checkstyleVersion = '8.4.3'
+	}
+}
+
 plugins {
-	id 'org.springframework.boot' version '2.5.0'
+	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'checkstyle'
 }
 
 group = 'com.example'
@@ -13,10 +21,23 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+checkstyleMain {
+	source = 'src/main/java'
+}
+
+checkstyleTest {
+	source = 'src/test/java'
+}
+
+checkstyle {
+	toolVersion "${checkstyleVersion}"
+	configFile file("config/checkstyle/checkstyle.xml")
 }
