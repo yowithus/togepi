@@ -2,6 +2,9 @@ buildscript {
 	ext {
 		springBootVersion = '2.5.0'
 		checkstyleVersion = '8.4.3'
+		elasticsearchVersion = '7.10.1'
+		lombokVersion = '1.18.18'
+		apacheCommonLangVersion = '3.12.0'
 	}
 }
 
@@ -14,7 +17,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
@@ -22,6 +25,12 @@ repositories {
 
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+	implementation 'org.projectlombok:lombok'
+	implementation "org.elasticsearch:elasticsearch:${elasticsearchVersion}"
+	implementation "org.elasticsearch.client:elasticsearch-rest-client:${elasticsearchVersion}"
+	implementation "org.elasticsearch.client:elasticsearch-rest-high-level-client:${elasticsearchVersion}"
+	implementation "org.projectlombok:lombok:${lombokVersion}"
+	implementation "org.apache.commons:commons-lang3:${apacheCommonLangVersion}"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

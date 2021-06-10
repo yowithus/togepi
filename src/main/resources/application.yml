@@ -1,0 +1,25 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: /togepi
+
+management:
+  endpoints:
+    web:
+      base-path: /
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+application:
+  togepi:
+    elasticsearch:
+      host: localhost
+      port: 9200
+      protocol: http
