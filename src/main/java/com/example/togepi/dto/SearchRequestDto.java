@@ -3,7 +3,6 @@ package com.example.togepi.dto;
 import com.example.togepi.entity.BaseEntity;
 import com.example.togepi.util.CursorUtil;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -12,14 +11,11 @@ import org.springframework.util.ObjectUtils;
 import java.util.concurrent.TimeUnit;
 
 @Data
-@RequiredArgsConstructor
 public class SearchRequestDto<E extends BaseEntity> {
 
     private static final int DEFAULT_TIMEOUT_SECONDS = 5;
     private static final int DEFAULT_PAGE_SIZE = 10;
 
-    private final String index;
-    private final Class<E> entity;
     private SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
     private TimeValue timeout = new TimeValue(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
 

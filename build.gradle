@@ -5,6 +5,8 @@ buildscript {
 		elasticsearchVersion = '7.10.1'
 		lombokVersion = '1.18.18'
 		apacheCommonLangVersion = '3.12.0'
+		javaxValidationVersion = '2.0.1.Final'
+		lombokVersion = '1.18.20'
 	}
 }
 
@@ -25,13 +27,15 @@ repositories {
 
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-	implementation 'org.projectlombok:lombok'
+	implementation "org.projectlombok:lombok:${lombokVersion}"
 	implementation "org.elasticsearch:elasticsearch:${elasticsearchVersion}"
 	implementation "org.elasticsearch.client:elasticsearch-rest-client:${elasticsearchVersion}"
 	implementation "org.elasticsearch.client:elasticsearch-rest-high-level-client:${elasticsearchVersion}"
 	implementation "org.projectlombok:lombok:${lombokVersion}"
 	implementation "org.apache.commons:commons-lang3:${apacheCommonLangVersion}"
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "javax.validation:validation-api:${javaxValidationVersion}"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 }
 
 test {

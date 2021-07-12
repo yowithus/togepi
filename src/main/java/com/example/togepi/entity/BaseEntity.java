@@ -3,12 +3,15 @@ package com.example.togepi.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Data
 public class BaseEntity {
 
-    private UUID uuid;
+    private UUID id;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime updatedAt;
 
     @JsonIgnore
     private Additional additional = new Additional();
